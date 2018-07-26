@@ -1,0 +1,48 @@
+apply plugin: 'java' //Java套件會被相依進來
+apply plugin: 'eclipse-wtp' //elipse的web專案套件
+apply plugin: 'war'
+
+version = '1.0.0'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+compileJava.options.encoding = 'UTF-8' //原始碼編譯時的編碼
+javadoc.options.encoding = 'UTF-8'
+
+//gradle 參數
+configurations {
+	testCompile
+    provided {
+    	dependencies.all { dep ->
+            configurations.default.exclude group: dep.group, module: dep.name
+        }
+    }
+    compile.extendsFrom provided
+}
+
+//全域變數
+ext {
+	springVersion = '4.3.6.RELEASE'
+}
+
+//來源管理(函式庫來源)
+repositories {
+	mavenCentral()
+}
+
+//函式庫管理
+dependencies {
+	compile group: 'org.springframework', name: 'spring-core', version: springVersion
+	compile group: 'org.springframework', name: 'spring-beans', version: springVersion
+	compile group: 'org.springframework', name: 'spring-context', version: springVersion
+	compile group: 'org.springframework', name: 'spring-webmvc', version: springVersion
+	
+	//providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+}
+
+test {  
+    useTestNG()  
+}  
+
+
+
