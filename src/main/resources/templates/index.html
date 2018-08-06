@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>第一個Spring-Boot網頁</title>
+</head>
+<body>
+
+<div>
+        <div>
+            <div>Sptring Boot的初體驗</div>
+            <table>
+                <tr>
+                    <td>專案</td>
+                    <td>網址</td>
+                    <td>說明</td>
+                </tr>
+                <tr th:each="prj: ${data}">
+                    <td th:text="${prj.name}">專案名稱</td>
+                    <td th:text="${prj.description}">說明</td>
+                    <td><a href="#" th:href="${prj.url}" target="_blank"><span>請按我</span></a>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</body>
+</html>
