@@ -28,5 +28,8 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter'
 	compile 'org.springframework.boot:spring-boot-starter-web'
 	compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	compile 'org.webjars:jquery:3.3.0'
+	compile 'org.webjars:webjars-locator:0.34'
+	
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }

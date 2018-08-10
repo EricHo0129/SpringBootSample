@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>第一個Spring-Boot網頁</title>
+<script type="text/javascript" th:src="${#request.contextPath}+'/webjarlocator/jquery/jquery.min.js'"></script>
 </head>
 <body>
 
@@ -25,6 +26,8 @@
 
         </div>
     </div>
-
+<script>
+ $("a").css("color","red");
+</script>
 </body>
 </html>
